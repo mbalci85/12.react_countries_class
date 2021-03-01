@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export class Country extends Component {
 	render() {
-		return <div></div>;
+		return <div>{this.props.country.name}</div>;
 	}
 }
 
