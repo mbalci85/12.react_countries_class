@@ -8,7 +8,13 @@ export class App extends Component {
 	};
 	render() {
 		return (
-			<div style={{ textAlign: 'center' }}>
+			<div
+				style={{
+					textAlign: 'center',
+					backgroundColor: 'lightsalmon',
+					padding: 15,
+				}}
+			>
 				<h1>COUNTRIES</h1>
 				<Countries countries={this.state.countries} />
 			</div>

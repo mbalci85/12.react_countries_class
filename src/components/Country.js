@@ -7,21 +7,27 @@ export class Country extends Component {
 				style={{
 					display: 'inline-flex',
 					width: 180,
-					height: 400,
-					margin: 5,
+					height: 435,
+					margin: 10,
 					border: 'solid 3px black',
-					paddingTop: 0,
+					padding: 0,
+					backgroundColor: 'white',
 				}}
 			>
 				<div style={{}}>
 					<img
 						src={this.props.country.flag}
 						alt="country flag"
-						style={{ width: 174, height: 115, paddingTop: 0 }}
+						style={{
+							width: 174,
+							height: 115,
+							paddingTop: 0,
+							border: 'solid 1px lightgrey',
+						}}
 					/>
 					<br />
 					<br />
-					<h5>{this.props.country.name}</h5>
+					<h4>{this.props.country.name}</h4>
 					<br />
 					<h6>Population : </h6>
 					{this.props.country.population}
