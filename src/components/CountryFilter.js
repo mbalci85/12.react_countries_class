@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 
 export class CountryFilter extends Component {
 	render() {
-		return <div></div>;
+		return (
+			<div>
+				<input />
+			</div>
+		);
 	}
 }
 
