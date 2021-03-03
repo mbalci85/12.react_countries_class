@@ -13,8 +13,9 @@ export class Country extends Component {
 					padding: 0,
 					backgroundColor: 'white',
 				}}
+				onClick={this.props.selectCountry}
 			>
-				<div style={{}}>
+				<div>
 					<img
 						src={this.props.country.flag}
 						alt="country flag"

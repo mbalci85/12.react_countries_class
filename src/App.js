@@ -27,6 +27,8 @@ export class App extends Component {
 		});
 	};
 
+	selectCountry = () => {};
+
 	render() {
 		return (
 			<div
@@ -41,7 +43,10 @@ export class App extends Component {
 					handleSelect={this.handleSelect}
 					handleInput={this.handleInput}
 				/>
-				<Countries countries={this.state.countries} />
+				<Countries
+					countries={this.state.countries}
+					selectCountry={this.selectCountry}
+				/>
 			</div>
 		);
 	}
