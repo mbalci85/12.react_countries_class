@@ -18,6 +18,15 @@ export class App extends Component {
 					  ),
 		});
 	};
+
+	handleInput = (e) => {
+		this.setState({
+			countries: allCountries.filter((country) =>
+				country.name.toLowerCase().includes(e.target.value.toLowerCase()),
+			),
+		});
+	};
+
 	render() {
 		return (
 			<div
@@ -28,7 +37,10 @@ export class App extends Component {
 				}}
 			>
 				<h1>COUNTRIES</h1>
-				<CountryFilter handleSelect={this.handleSelect} />
+				<CountryFilter
+					handleSelect={this.handleSelect}
+					handleInput={this.handleInput}
+				/>
 				<Countries countries={this.state.countries} />
 			</div>
 		);

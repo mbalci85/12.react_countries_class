@@ -8,6 +8,7 @@ export class CountryFilter extends Component {
 					<input
 						style={{ width: 300, margin: 8, height: 30 }}
 						placeholder="Type to Filter..."
+						onChange={this.props.handleInput}
 					/>
 					<select
 						style={{ width: 300, height: 30 }}
