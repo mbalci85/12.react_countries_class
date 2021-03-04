@@ -13,7 +13,10 @@ export class Country extends Component {
 					padding: 0,
 					backgroundColor: 'white',
 				}}
-				onClick={this.props.selectCountry}
+				onClick={this.props.selectCountry.bind(
+					this,
+					this.props.country.alpha3Code,
+				)}
 			>
 				<div>
 					<img

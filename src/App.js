@@ -27,7 +27,13 @@ export class App extends Component {
 		});
 	};
 
-	selectCountry = () => {};
+	selectCountry = (alpha3Code) => {
+		this.setState({
+			countries: allCountries.filter(
+				(country) => country.alpha3Code === alpha3Code,
+			),
+		});
+	};
 
 	render() {
 		return (
