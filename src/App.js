@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Borders from './components/Borders';
 import Countries from './components/Countries';
 import CountryFilter from './components/CountryFilter';
 import allCountries from './countriesAll.json';
@@ -6,6 +7,7 @@ import allCountries from './countriesAll.json';
 export class App extends Component {
 	state = {
 		countries: allCountries,
+		borders: [],
 	};
 
 	handleSelect = (e) => {
@@ -16,6 +18,7 @@ export class App extends Component {
 					: allCountries.filter(
 							(country) => country.region === e.target.value,
 					  ),
+			borders: [],
 		});
 	};
 
@@ -24,6 +27,7 @@ export class App extends Component {
 			countries: allCountries.filter((country) =>
 				country.name.toLowerCase().includes(e.target.value.toLowerCase()),
 			),
+			borders: [],
 		});
 	};
 
@@ -32,7 +36,11 @@ export class App extends Component {
 			countries: allCountries.filter(
 				(country) => country.alpha3Code === alpha3Code,
 			),
+			borders: allCountries.filter((country) =>
+				this.state.countries[0].borders.includes(country.alpha3Code),
+			),
 		});
+		console.log(this.state.borders);
 	};
 
 	render() {
@@ -53,6 +61,7 @@ export class App extends Component {
 					countries={this.state.countries}
 					selectCountry={this.selectCountry}
 				/>
+				<Borders borders={this.state.borders} />
 			</div>
 		);
 	}
