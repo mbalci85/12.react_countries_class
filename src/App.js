@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Borders from './components/Borders';
 import Countries from './components/Countries';
 import CountryFilter from './components/CountryFilter';
 import allCountries from './countriesAll.json';
@@ -6,6 +7,7 @@ import allCountries from './countriesAll.json';
 export class App extends Component {
 	state = {
 		countries: allCountries,
+		borders: [],
 	};
 
 	handleSelect = (e) => {
@@ -16,6 +18,7 @@ export class App extends Component {
 					: allCountries.filter(
 							(country) => country.region === e.target.value,
 					  ),
+			borders: [],
 		});
 	};
 
@@ -24,6 +27,7 @@ export class App extends Component {
 			countries: allCountries.filter((country) =>
 				country.name.toLowerCase().includes(e.target.value.toLowerCase()),
 			),
+			borders: [],
 		});
 	};
 
@@ -33,6 +37,29 @@ export class App extends Component {
 				(country) => country.alpha3Code === alpha3Code,
 			),
 		});
+		setTimeout(() => {
+			this.setState({
+				borders: allCountries.filter((country) =>
+					this.state.countries[0].borders.includes(country.alpha3Code),
+				),
+			});
+		}, 10);
+		console.log(this.state.borders);
+	};
+
+	selectBorder = (alpha3Code) => {
+		this.setState({
+			countries: allCountries.filter(
+				(country) => country.alpha3Code === alpha3Code,
+			),
+		});
+		setTimeout(() => {
+			this.setState({
+				borders: allCountries.filter((country) =>
+					this.state.countries[0].borders.includes(country.alpha3Code),
+				),
+			});
+		}, 10);
 	};
 
 	render() {
@@ -48,10 +75,16 @@ export class App extends Component {
 				<CountryFilter
 					handleSelect={this.handleSelect}
 					handleInput={this.handleInput}
+					state={this.state}
 				/>
 				<Countries
 					countries={this.state.countries}
 					selectCountry={this.selectCountry}
+					borders={this.state.borders}
+				/>
+				<Borders
+					borders={this.state.borders}
+					selectBorder={this.selectBorder}
 				/>
 			</div>
 		);
