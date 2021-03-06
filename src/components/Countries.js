@@ -7,6 +7,7 @@ export class Countries extends Component {
 			<div style={{ margin: 20 }}>
 				{this.props.countries.map((country) => (
 					<Country
+						borders={this.props.borders}
 						key={country.alpha3Code}
 						country={country}
 						selectCountry={this.props.selectCountry}

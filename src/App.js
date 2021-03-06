@@ -36,11 +36,30 @@ export class App extends Component {
 			countries: allCountries.filter(
 				(country) => country.alpha3Code === alpha3Code,
 			),
-			borders: allCountries.filter((country) =>
-				this.state.countries[0].borders.includes(country.alpha3Code),
+		});
+		setTimeout(() => {
+			this.setState({
+				borders: allCountries.filter((country) =>
+					this.state.countries[0].borders.includes(country.alpha3Code),
+				),
+			});
+		}, 10);
+		console.log(this.state.borders);
+	};
+
+	selectBorder = (alpha3Code) => {
+		this.setState({
+			countries: allCountries.filter(
+				(country) => country.alpha3Code === alpha3Code,
 			),
 		});
-		console.log(this.state.borders);
+		setTimeout(() => {
+			this.setState({
+				borders: allCountries.filter((country) =>
+					this.state.countries[0].borders.includes(country.alpha3Code),
+				),
+			});
+		}, 10);
 	};
 
 	render() {
@@ -56,12 +75,17 @@ export class App extends Component {
 				<CountryFilter
 					handleSelect={this.handleSelect}
 					handleInput={this.handleInput}
+					state={this.state}
 				/>
 				<Countries
 					countries={this.state.countries}
 					selectCountry={this.selectCountry}
+					borders={this.state.borders}
 				/>
-				<Borders borders={this.state.borders} />
+				<Borders
+					borders={this.state.borders}
+					selectBorder={this.selectBorder}
+				/>
 			</div>
 		);
 	}

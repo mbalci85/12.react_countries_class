@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
-export class Country extends Component {
+export class Test extends Component {
 	render() {
 		return (
-			<div style={{ display: 'inline-flex' }}>
+			<div>
 				{this.props.borders.length === 0 ? (
 					<div
 						style={{
+							display: 'inline-flex',
 							width: 180,
 							height: 455,
 							margin: 10,
@@ -55,17 +56,14 @@ export class Country extends Component {
 				) : (
 					<div
 						style={{
-							width: 180,
+							display: 'inline-flex',
+							width: 300,
 							height: 600,
 							margin: 10,
 							border: 'solid 3px black',
 							padding: 0,
 							backgroundColor: 'white',
 						}}
-						onClick={this.props.selectCountry.bind(
-							this,
-							this.props.country.alpha3Code,
-						)}
 					>
 						<div>
 							<img
@@ -110,7 +108,7 @@ export class Country extends Component {
 								Currencies : <br />
 								<span style={{ fontWeight: 'normal' }}>
 									{this.props.country.currencies.map(
-										(currency) => currency.name + ' ',
+										(currency) => currency.name,
 									)}
 								</span>
 							</h6>
@@ -122,4 +120,4 @@ export class Country extends Component {
 	}
 }
 
-export default Country;
+export default Test;

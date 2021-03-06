@@ -10,6 +10,12 @@ export class CountryFilter extends Component {
 						placeholder="Type to Filter..."
 						onChange={this.props.handleInput}
 					/>
+
+					{this.props.state.borders.length !== 0 ||
+					this.props.state.countries.length === 1 ? (
+						<button>Go to Home Page</button>
+					) : null}
+
 					<select
 						style={{ width: 300, height: 30 }}
 						onChange={this.props.handleSelect}
