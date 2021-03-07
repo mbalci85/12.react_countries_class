@@ -14,10 +14,24 @@ export class CountryFilter extends Component {
 								? this.props.handleInput
 								: null
 						}
+						value={!this.props.state.filtered ? '' : null}
 					/>
 
 					{this.props.state.borders.length !== 0 ||
-					this.props.state.countries.length === 1 ? (
+					(this.props.state.countries.length === 1 &&
+						!this.props.state.filtered) ? (
+						<button
+							style={{
+								marginRight: 10,
+								height: 40,
+								borderRadius: 5,
+								width: 200,
+							}}
+						>
+							Go to Home Page
+						</button>
+					) : this.props.state.countries.length !== 0 &&
+					  this.props.state.countries[0].alpha3Code.includes('ATA') ? (
 						<button
 							style={{
 								marginRight: 10,
@@ -30,8 +44,10 @@ export class CountryFilter extends Component {
 						</button>
 					) : null}
 
-					{this.props.state.countries[0].alpha3Code === 'ATA' ? null : this
-							.props.state.filtered ? (
+					{this.props.state.countries.length !== 0 &&
+					this.props.state.countries[0].alpha3Code.includes(
+						'ATA',
+					) ? null : this.props.state.filtered ? (
 						<button
 							style={{
 								marginRight: 10,
@@ -61,6 +77,11 @@ export class CountryFilter extends Component {
 						<option value="Polar">Polar</option>
 					</select>
 				</form>
+				<div>
+					<p>
+						<i>Click the Country Cards to See More Details</i>
+					</p>
+				</div>
 			</div>
 		);
 	}

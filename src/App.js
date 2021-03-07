@@ -30,6 +30,7 @@ export class App extends Component {
 				country.name.toLowerCase().includes(e.target.value.toLowerCase()),
 			),
 			borders: [],
+			filtered: true,
 		});
 	};
 
@@ -44,6 +45,7 @@ export class App extends Component {
 				borders: allCountries.filter((country) =>
 					this.state.countries[0].borders.includes(country.alpha3Code),
 				),
+				filtered: false,
 			});
 		}, 10);
 	};
@@ -59,6 +61,7 @@ export class App extends Component {
 				borders: allCountries.filter((country) =>
 					this.state.countries[0].borders.includes(country.alpha3Code),
 				),
+				filtered: false,
 			});
 		}, 10);
 	};
