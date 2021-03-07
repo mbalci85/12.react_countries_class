@@ -5,7 +5,7 @@ export class Borders extends Component {
 	render() {
 		return (
 			<div style={{ display: 'inline-block' }}>
-				{this.props.borders.length !== 0 ? <h2>Borders</h2> : null}
+				{this.props.borders.length !== 0 ? <h2>BORDERS</h2> : null}
 				<br />
 				{this.props.borders.map((border) => (
 					<Border

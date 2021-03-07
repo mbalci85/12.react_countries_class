@@ -8,17 +8,19 @@ export class App extends Component {
 	state = {
 		countries: allCountries,
 		borders: [],
+		filtered: false,
 	};
 
 	handleSelect = (e) => {
 		this.setState({
 			countries:
 				e.target.value === 'selectRegion'
-					? allCountries
+					? this.state.countries
 					: allCountries.filter(
 							(country) => country.region === e.target.value,
 					  ),
 			borders: [],
+			filtered: true,
 		});
 	};
 
@@ -44,7 +46,6 @@ export class App extends Component {
 				),
 			});
 		}, 10);
-		console.log(this.state.borders);
 	};
 
 	selectBorder = (alpha3Code) => {
@@ -71,7 +72,7 @@ export class App extends Component {
 					padding: 15,
 				}}
 			>
-				<h1>COUNTRIES</h1>
+				<h1 style={{ fontSize: 70, fontWeight: 'bolder' }}>COUNTRIES</h1>
 				<CountryFilter
 					handleSelect={this.handleSelect}
 					handleInput={this.handleInput}

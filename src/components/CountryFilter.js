@@ -6,19 +6,51 @@ export class CountryFilter extends Component {
 			<div>
 				<form>
 					<input
-						style={{ width: 300, margin: 8, height: 30 }}
+						style={{ width: 400, margin: 8, height: 40, borderRadius: 5 }}
 						placeholder="Type to Filter..."
-						onChange={this.props.handleInput}
+						onChange={
+							this.props.state.borders.length === 0 ||
+							this.props.state.countries.length !== 1
+								? this.props.handleInput
+								: null
+						}
 					/>
 
 					{this.props.state.borders.length !== 0 ||
 					this.props.state.countries.length === 1 ? (
-						<button>Go to Home Page</button>
+						<button
+							style={{
+								marginRight: 10,
+								height: 40,
+								borderRadius: 5,
+								width: 200,
+							}}
+						>
+							Go to Home Page
+						</button>
 					) : null}
 
+					{this.props.state.countries[0].alpha3Code === 'ATA' ? null : this
+							.props.state.filtered ? (
+						<button
+							style={{
+								marginRight: 10,
+								height: 40,
+								borderRadius: 5,
+								width: 200,
+							}}
+						>
+							Go to Home Page
+						</button>
+					) : null}
 					<select
-						style={{ width: 300, height: 30 }}
-						onChange={this.props.handleSelect}
+						style={{ width: 400, height: 40, borderRadius: 5 }}
+						onChange={
+							this.props.state.borders.length === 0 ||
+							this.props.state.countries.length !== 1
+								? this.props.handleSelect
+								: null
+						}
 					>
 						<option value="selectRegion">Select Your Region</option>
 						<option value="Africa">Africa</option>
